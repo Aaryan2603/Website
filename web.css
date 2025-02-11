@@ -1,0 +1,36 @@
+.loader {
+    width: 80px;
+    height: 40px;
+    display: flex;
+  }
+  .loaderhead
+  {
+    display: flex;
+    justify-content: center;
+    margin-top: 20vh;
+  }
+  .loader::before,
+  .loader::after {
+    content: "";
+    flex: 1;
+    clip-path: polygon(0 0,100% 0,100% 100%);
+    background: #FC3A51;
+    animation: 
+      l15-1 1s infinite linear alternate,
+      l15-2 2s infinite linear -.5s;
+  }
+  .loader::after {
+    --s:-1,-1;
+  }
+  @keyframes l15-1 {
+    0%,
+    10%  {transform:scale(var(--s,1)) translate(0px)   perspective(150px) rotateY(0deg) }
+    33%  {transform:scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(0deg) }
+    66%  {transform:scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(-180deg)}
+    90%,
+    100% {transform:scale(var(--s,1)) translate(0px)   perspective(150px) rotateX(-180deg)}
+  }
+  @keyframes l15-2 {
+    0%,49.99% {background:#FC3A51}
+    50%,100%  {background:#EB9F9F}
+  }
